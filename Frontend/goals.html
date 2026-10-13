@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="lv">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mērķi — Pennywise</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body class="auth-pending" data-auth-required>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Galvenā navigācija">
+        <a class="brand" href="/"><span class="brand-mark">P</span><span>Pennywise</span></a>
+        <p class="nav-label">Finanšu vide</p>
+        <nav class="side-nav">
+          <a href="overview.html"><span class="nav-icon">⌂</span>Pārskats</a>
+          <a href="transactions.html"><span class="nav-icon">↔</span>Darījumi</a>
+          <a href="budgets.html"><span class="nav-icon">◫</span>Budžeti</a>
+          <a class="active" href="goals.html"><span class="nav-icon">◇</span>Mērķi</a>
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="phase-card"><strong>Pennywise</strong><span>Droša finanšu pārvaldība</span></div>
+          <div class="sidebar-user"><span class="user-avatar" data-user-initial>P</span><div><strong data-user-full-name>Ielādē...</strong><span data-user-currency>Konts</span></div></div>
+          <nav class="side-nav"><a href="profile.html"><span class="nav-icon">○</span>Profils</a><button type="button" data-logout><span class="nav-icon">↗</span>Izrakstīties</button></nav>
+        </div>
+      </aside>
+
+      <main class="app-main">
+        <div class="mobile-topbar"><a class="brand" href="/"><span class="brand-mark">P</span><span>Pennywise</span></a><button class="menu-button" type="button" data-menu-toggle aria-label="Atvērt izvēlni">☰</button></div>
+        <div class="notice" data-page-notice hidden></div>
+        <header class="page-header">
+          <div><p class="eyebrow">Mērķis, uz ko tiekties</p><h1>Uzkrājumu mērķi</h1><p>Pārvērt lielu ieceri skaidrā un sasniedzamā uzkrājumu plānā.</p></div>
+          <div class="page-actions"><button class="button button-primary" type="button" data-add-goal>+ Jauns mērķis</button></div>
+        </header>
+
+        <section class="loading-panel" data-goals-loading aria-live="polite"><span class="loading-spinner"></span><strong>Ielādē uzkrājumu mērķus...</strong></section>
+
+        <div data-goals-content hidden>
+          <section class="metrics-grid" aria-label="Uzkrājumu mērķu kopsavilkums">
+            <article class="metric-card"><div class="metric-top"><span class="metric-label">Kopā uzkrāts</span><span class="metric-icon">✓</span></div><strong class="metric-value" data-goals-total-saved>—</strong><span class="metric-foot" data-goals-total-target>—</span></article>
+            <article class="metric-card"><div class="metric-top"><span class="metric-label">Kopējā izpilde</span><span class="metric-icon">◇</span></div><strong class="metric-value" data-goals-progress>—</strong><div class="progress metric-progress"><span data-goals-progress-bar></span></div></article>
+            <article class="metric-card"><div class="metric-top"><span class="metric-label">Statuss</span><span class="metric-icon">#</span></div><strong class="metric-value metric-status" data-goals-status>—</strong><span class="metric-foot" data-goals-count>—</span></article>
+          </section>
+
+          <section class="goal-grid" data-goal-grid aria-label="Tavi uzkrājumu mērķi"></section>
+          <section class="empty-state compact-empty goal-empty" data-goal-empty hidden>
+            <div><span class="empty-icon">◇</span><strong>Vēl nav neviena uzkrājumu mērķa</strong><p>Izveido pirmo mērķi, lai aprēķinātu piemērotu mēneša iemaksu.</p><button class="button button-primary" type="button" data-add-goal>+ Izveidot pirmo mērķi</button></div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <dialog class="modal" data-goal-dialog>
+      <form class="modal-card" data-goal-form data-form-id="goal">
+        <div class="modal-head"><div><p class="eyebrow">Uzkrājumu plāns</p><h2 data-goal-dialog-title>Izveidot mērķi</h2></div><button class="icon-button" type="button" data-close-dialog aria-label="Aizvērt">×</button></div>
+        <div class="auth-message" data-form-message></div>
+        <input name="savings_goals_id" type="hidden">
+        <div class="field-grid">
+          <div class="field field-full"><label for="goal-name">Mērķa nosaukums</label><input id="goal-name" name="name" maxlength="80" required placeholder="Piemēram, jauns dators"></div>
+          <div class="field"><label for="goal-target" data-goal-target-label>Mērķa summa</label><input id="goal-target" name="target_amount" type="number" min="0.01" step="0.01" required></div>
+          <div class="field"><label for="goal-current" data-goal-current-label>Pašreizējā summa</label><input id="goal-current" name="current_amount" type="number" min="0" step="0.01" value="0" required></div>
+          <div class="field field-full"><label for="goal-deadline">Termiņš</label><input id="goal-deadline" name="deadline" type="date" required></div>
+        </div>
+        <div class="form-actions modal-actions"><button class="button button-secondary" type="button" data-close-dialog>Atcelt</button><button class="button button-primary" type="submit" data-save-goal>Saglabāt mērķi</button></div>
+      </form>
+    </dialog>
+
+    <dialog class="modal" data-amount-dialog>
+      <form class="modal-card compact-modal-card" data-amount-form data-form-id="goal-amount">
+        <div class="modal-head"><div><p class="eyebrow">Atjaunināt izpildi</p><h2 data-amount-dialog-title>Atjaunināt uzkrāto summu</h2></div><button class="icon-button" type="button" data-close-amount-dialog aria-label="Aizvērt">×</button></div>
+        <div class="auth-message" data-amount-message></div>
+        <input name="savings_goals_id" type="hidden">
+        <div class="field"><label for="updated-current-amount">Pašreizējā summa</label><input id="updated-current-amount" name="current_amount" type="number" min="0" step="0.01" required></div>
+        <p class="muted form-helper" data-amount-helper></p>
+        <div class="form-actions modal-actions"><button class="button button-secondary" type="button" data-close-amount-dialog>Atcelt</button><button class="button button-primary" type="submit" data-save-amount>Atjaunināt izpildi</button></div>
+      </form>
+    </dialog>
+
+    <script src="js/api.js"></script>
+    <script src="js/goals.js"></script>
+  </body>
+</html>

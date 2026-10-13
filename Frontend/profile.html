@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="lv">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Profils — Pennywise</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body class="auth-pending" data-auth-required>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Galvenā navigācija">
+        <a class="brand" href="/"><span class="brand-mark">P</span><span>Pennywise</span></a>
+        <p class="nav-label">Finanšu vide</p>
+        <nav class="side-nav">
+          <a href="overview.html"><span class="nav-icon">⌂</span>Pārskats</a>
+          <a href="transactions.html"><span class="nav-icon">↔</span>Darījumi</a>
+          <a href="budgets.html"><span class="nav-icon">◫</span>Budžeti</a>
+          <a href="goals.html"><span class="nav-icon">◇</span>Mērķi</a>
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="phase-card"><strong>Pennywise</strong><span>Droša finanšu pārvaldība</span></div>
+          <div class="sidebar-user"><span class="user-avatar" data-user-initial>P</span><div><strong data-user-full-name>Ielādē...</strong><span data-user-currency>Konts</span></div></div>
+          <nav class="side-nav"><a class="active" href="profile.html"><span class="nav-icon">○</span>Profils</a><button type="button" data-logout><span class="nav-icon">↗</span>Izrakstīties</button></nav>
+        </div>
+      </aside>
+      <main class="app-main">
+        <div class="mobile-topbar"><a class="brand" href="/"><span class="brand-mark">P</span><span>Pennywise</span></a><button class="menu-button" type="button" data-menu-toggle aria-label="Atvērt izvēlni">☰</button></div>
+        <div class="notice" data-phase-notice hidden></div>
+        <header class="page-header">
+          <div><p class="eyebrow">Tavi iestatījumi</p><h1>Profils</h1><p>Atjaunini savu personīgo informāciju un norēķinu valūtu.</p></div>
+          <span class="badge">Pieteicies</span>
+        </header>
+        <div class="notice" data-profile-message hidden></div>
+        <section class="loading-panel" data-profile-loading aria-live="polite"><span class="loading-spinner"></span><strong>Ielādē profilu...</strong></section>
+        <section class="settings-grid" data-profile-content hidden>
+          <form class="form-card" data-profile-form data-form-id="profile">
+            <h2>Lietotāja informācija</h2>
+            <p>Izmaiņas tiek pārbaudītas un droši saglabātas tavā kontā.</p>
+            <div class="field-grid">
+              <div class="field"><label for="username">Lietotājvārds</label><input id="username" name="username" type="text" minlength="3" maxlength="30" required></div>
+              <div class="field"><label for="profile-email">E-pasta adrese</label><input id="profile-email" name="email" type="email" required></div>
+              <div class="field"><label for="first-name">Vārds</label><input id="first-name" name="first_name" type="text" maxlength="50" required></div>
+              <div class="field"><label for="last-name">Uzvārds</label><input id="last-name" name="last_name" type="text" maxlength="50" required></div>
+              <div class="field"><label for="age">Vecums</label><input id="age" name="age" type="number" min="1" max="120" required></div>
+              <div class="field"><label for="currency">Valūta</label><select id="currency" name="currency" required><option value="EUR">EUR — eiro</option><option value="USD">USD — ASV dolārs</option><option value="GBP">GBP — sterliņu mārciņa</option></select></div>
+            </div>
+            <div class="form-actions"><button class="button button-primary" type="submit">Saglabāt izmaiņas</button></div>
+          </form>
+          <aside class="card">
+            <div class="card-head"><div><p class="eyebrow">Konts</p><h2>Drošība</h2></div><span class="metric-icon">○</span></div>
+            <p class="muted">Tava parole tiek glabāta tikai droša jaucējkoda veidā. Pennywise atpazīst tevi, izmantojot servera pārvaldītu HttpOnly sesijas sīkdatni.</p>
+            <a class="button button-secondary admin-tools-link" data-admin-link href="admin.html" hidden>Atvērt administrācijas rīkus</a>
+            <div class="danger-zone">
+              <strong>Dzēst kontu</strong>
+              <p class="muted">Neatgriezeniski dzēš tavu kontu un visus ar to saistītos finanšu ierakstus.</p>
+              <button class="button button-danger" type="button" data-delete-account>Dzēst manu kontu</button>
+            </div>
+          </aside>
+        </section>
+      </main>
+    </div>
+    <script src="js/api.js"></script>
+    <script src="js/profile.js"></script>
+  </body>
+</html>

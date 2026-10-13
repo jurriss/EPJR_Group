@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="lv">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Budžeti — Pennywise</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body class="auth-pending" data-auth-required>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Galvenā navigācija">
+        <a class="brand" href="/"><span class="brand-mark">P</span><span>Pennywise</span></a>
+        <p class="nav-label">Finanšu vide</p>
+        <nav class="side-nav">
+          <a href="overview.html"><span class="nav-icon">⌂</span>Pārskats</a>
+          <a href="transactions.html"><span class="nav-icon">↔</span>Darījumi</a>
+          <a class="active" href="budgets.html"><span class="nav-icon">◫</span>Budžeti</a>
+          <a href="goals.html"><span class="nav-icon">◇</span>Mērķi</a>
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="phase-card"><strong>Pennywise</strong><span>Droša finanšu pārvaldība</span></div>
+          <div class="sidebar-user"><span class="user-avatar" data-user-initial>P</span><div><strong data-user-full-name>Ielādē...</strong><span data-user-currency>Konts</span></div></div>
+          <nav class="side-nav"><a href="profile.html"><span class="nav-icon">○</span>Profils</a><button type="button" data-logout><span class="nav-icon">↗</span>Izrakstīties</button></nav>
+        </div>
+      </aside>
+      <main class="app-main">
+        <div class="mobile-topbar"><a class="brand" href="/"><span class="brand-mark">P</span><span>Pennywise</span></a><button class="menu-button" type="button" data-menu-toggle aria-label="Atvērt izvēlni">☰</button></div>
+        <div class="notice" data-page-notice hidden></div>
+        <header class="page-header">
+          <div><p class="eyebrow">Izdevumu plāns</p><h1>Budžeti</h1><p>Nosaki katras kategorijas mēneša limitu un seko līdzi izdevumiem automātiski.</p></div>
+          <div class="page-actions"><label class="month-control"><span>Periods</span><input type="month" data-budget-month></label><button class="button button-primary" type="button" data-add-budget>+ Izveidot budžetu</button></div>
+        </header>
+
+        <section class="loading-panel" data-budgets-loading aria-live="polite"><span class="loading-spinner"></span><strong>Ielādē mēneša budžetus...</strong></section>
+
+        <div data-budgets-content hidden>
+        <div class="notification-list" data-budget-notifications aria-live="polite"></div>
+        <section class="metrics-grid metrics-grid-four" aria-label="Budžeta kopsavilkums">
+          <article class="metric-card"><span class="metric-label">Mēneša budžets</span><strong class="metric-value" data-total-limit>—</strong><span class="metric-foot">Visās kategorijās</span></article>
+          <article class="metric-card"><span class="metric-label">Iztērētā summa</span><strong class="metric-value" data-total-spent>—</strong><span class="metric-foot" data-budget-percentage>—</span></article>
+          <article class="metric-card"><span class="metric-label">Atlikums</span><strong class="metric-value" data-total-remaining>—</strong><span class="metric-foot" data-budget-status>—</span></article>
+          <article class="metric-card"><span class="metric-label">Atlikušās dienas</span><strong class="metric-value" data-days-remaining>—</strong><span class="metric-foot">Izvēlētajā mēnesī</span></article>
+        </section>
+
+        <section class="card">
+          <div class="card-head"><div><p class="eyebrow">Kategoriju limiti</p><h2>Tavs mēneša plāns</h2></div><span class="badge" data-budget-count>0 budžetu</span></div>
+          <div class="budget-grid" data-budget-grid></div>
+          <div class="empty-state compact-empty" data-budget-empty hidden><div><span class="empty-icon">◫</span><strong>Vēl nav neviena budžeta</strong><p>Izveido kategorijas limitu, lai sāktu sekot mēneša izdevumiem.</p></div></div>
+        </section>
+        </div>
+      </main>
+    </div>
+
+    <dialog class="modal" data-budget-dialog>
+      <form class="modal-card" data-budget-form data-form-id="budget">
+        <div class="modal-head"><div><p class="eyebrow">Izdevumu plāns</p><h2 data-budget-dialog-title>Izveidot budžetu</h2></div><button class="icon-button" type="button" data-close-dialog aria-label="Aizvērt">×</button></div>
+        <div class="auth-message" data-form-message></div>
+        <input name="expense_id" type="hidden">
+        <div class="field-grid">
+          <div class="field field-full"><label for="budget-category">Kategorija</label><select id="budget-category" name="category_id" required data-budget-category></select></div>
+          <div class="field field-full"><label for="budget-amount" data-budget-amount-label>Mēneša limits</label><input id="budget-amount" name="amount" type="number" min="0.01" step="0.01" required></div>
+        </div>
+        <div class="form-actions modal-actions"><button class="button button-secondary" type="button" data-close-dialog>Atcelt</button><button class="button button-primary" type="submit" data-save-budget>Saglabāt budžetu</button></div>
+      </form>
+    </dialog>
+    <script src="js/api.js"></script>
+    <script src="js/budgets.js"></script>
+  </body>
+</html>

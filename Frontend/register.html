@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="lv">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Izveido Pennywise kontu.">
+    <title>Reģistrācija — Pennywise</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body data-auth-guest>
+    <main class="auth-page">
+      <aside class="auth-aside">
+        <a class="brand" href="/">
+          <span class="brand-mark">P</span>
+          <span>Pennywise</span>
+        </a>
+        <div class="auth-quote">
+          <p class="eyebrow">Tavs plāns, tavs ritms</p>
+          <h1>Veido noturīgus finanšu ieradumus.</h1>
+          <p>Ieraugi kopainu, nosaki mērķi un virzies uz priekšu ar katru pārdomāto izvēli.</p>
+        </div>
+        <footer>© <span data-current-year></span> Pennywise</footer>
+      </aside>
+
+      <section class="auth-main">
+        <div class="auth-card">
+          <p class="eyebrow">Sāc no jauna</p>
+          <h2>Izveidot kontu</h2>
+          <p>Izveido drošu kontu savai Pennywise finanšu videi.</p>
+          <form data-auth-form="register" novalidate>
+            <div class="auth-message" data-auth-message role="status"></div>
+            <div class="field">
+              <label for="username">Lietotājvārds</label>
+              <input id="username" name="username" type="text" autocomplete="username" placeholder="Izvēlies lietotājvārdu" required>
+            </div>
+            <div class="field-grid auth-field-grid">
+              <div class="field">
+                <label for="first-name">Vārds</label>
+                <input id="first-name" name="first_name" type="text" autocomplete="given-name" placeholder="Vārds" required>
+              </div>
+              <div class="field">
+                <label for="last-name">Uzvārds</label>
+                <input id="last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Uzvārds" required>
+              </div>
+            </div>
+            <div class="field">
+              <label for="email">E-pasta adrese</label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="tavs.epasts@piemers.lv" required>
+            </div>
+            <div class="field">
+              <label for="password">Parole</label>
+              <input id="password" name="password" type="password" autocomplete="new-password" minlength="8" maxlength="128" placeholder="Vismaz 8 rakstzīmes" required>
+            </div>
+            <div class="field-grid auth-field-grid">
+              <div class="field">
+                <label for="age">Vecums</label>
+                <input id="age" name="age" type="number" min="1" max="120" placeholder="Vecums" required>
+              </div>
+              <div class="field">
+                <label for="currency">Valūta</label>
+                <select id="currency" name="currency" required>
+                  <option value="EUR">EUR — eiro</option>
+                  <option value="USD">USD — ASV dolārs</option>
+                  <option value="GBP">GBP — sterliņu mārciņa</option>
+                </select>
+              </div>
+            </div>
+            <button class="button button-primary" type="submit">Reģistrēties</button>
+          </form>
+          <div class="auth-switch">Jau ir konts? <a href="login.html">Piesakies</a></div>
+        </div>
+      </section>
+    </main>
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+  </body>
+</html>

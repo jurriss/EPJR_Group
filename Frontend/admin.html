@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="lv">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Administrācija — Pennywise</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body class="auth-pending" data-auth-required data-admin-required>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Galvenā navigācija">
+        <a class="brand" href="/"><span class="brand-mark">P</span><span>Pennywise</span></a>
+        <p class="nav-label">Finanšu vide</p>
+        <nav class="side-nav">
+          <a href="overview.html"><span class="nav-icon">⌂</span>Pārskats</a>
+          <a href="transactions.html"><span class="nav-icon">↔</span>Darījumi</a>
+          <a href="budgets.html"><span class="nav-icon">◫</span>Budžeti</a>
+          <a href="goals.html"><span class="nav-icon">◇</span>Mērķi</a>
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="phase-card"><strong>Pennywise</strong><span>Droša finanšu pārvaldība</span></div>
+          <div class="sidebar-user"><span class="user-avatar" data-user-initial>P</span><div><strong data-user-full-name>Ielādē...</strong><span data-user-currency>Konts</span></div></div>
+          <nav class="side-nav"><a href="profile.html"><span class="nav-icon">○</span>Profils</a><button type="button" data-logout><span class="nav-icon">↗</span>Izrakstīties</button></nav>
+        </div>
+      </aside>
+      <main class="app-main">
+        <div class="mobile-topbar"><a class="brand" href="/"><span class="brand-mark">P</span><span>Pennywise</span></a><button class="menu-button" type="button" data-menu-toggle aria-label="Atvērt izvēlni">☰</button></div>
+        <div class="notice" data-phase-notice hidden></div>
+        <header class="page-header">
+          <div><p class="eyebrow">Ierobežotas piekļuves zona</p><h1>Administrācija</h1><p>Pārvaldi lietotājus, kategorijas un sistēmas kopējo darbību.</p></div>
+          <span class="badge">Tikai administratoriem</span>
+        </header>
+        <div class="notice" data-admin-notice hidden></div>
+        <section class="admin-statistics" aria-label="Sistēmas statistika">
+          <article class="metric-card"><span class="metric-label">Lietotāji</span><strong class="metric-value" data-statistic="total_users">—</strong></article>
+          <article class="metric-card"><span class="metric-label">Darījumi</span><strong class="metric-value" data-statistic="total_transactions">—</strong></article>
+          <article class="metric-card"><span class="metric-label">Ienākumu ieraksti</span><strong class="metric-value" data-statistic="total_income_records">—</strong></article>
+          <article class="metric-card"><span class="metric-label">Budžeti / izdevumi</span><strong class="metric-value" data-statistic="total_expense_records">—</strong></article>
+          <article class="metric-card"><span class="metric-label">Uzkrājumu mērķi</span><strong class="metric-value" data-statistic="total_savings_goals">—</strong></article>
+          <article class="metric-card"><span class="metric-label">Kategorijas</span><strong class="metric-value" data-statistic="number_of_categories">—</strong></article>
+        </section>
+
+        <section class="admin-grid">
+          <article class="card admin-panel-wide">
+            <div class="card-head"><div><p class="eyebrow">Konta piekļuve</p><h2>Lietotāji</h2></div><span class="badge">Paroles netiek atklātas</span></div>
+            <div class="data-table-wrap">
+              <table class="data-table">
+                <thead><tr><th>Konts</th><th>Vārds</th><th>Loma</th><th>Darbības</th></tr></thead>
+                <tbody data-users-body><tr><td colspan="4">Ielādē lietotājus...</td></tr></tbody>
+              </table>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-head"><div><p class="eyebrow">Kopīgās kategorijas</p><h2>Kategorijas</h2></div></div>
+            <form class="inline-form" data-category-form data-form-id="category">
+              <div class="field inline-category-field"><label class="sr-only" for="category-title">Jaunās kategorijas nosaukums</label><input id="category-title" name="title" type="text" minlength="2" maxlength="50" placeholder="Jauna kategorija" required></div>
+              <div class="field"><label class="sr-only" for="category-type">Kategorijas veids</label><select id="category-type" name="type" required><option value="expense">Izdevumi</option><option value="income">Ienākumi</option></select></div>
+              <button class="button button-primary" type="submit">Pievienot</button>
+            </form>
+            <div class="data-table-wrap">
+              <table class="data-table">
+                <thead><tr><th>Kategorija</th><th>Veids</th><th>Darbības</th></tr></thead>
+                <tbody data-categories-body><tr><td colspan="3">Ielādē kategorijas...</td></tr></tbody>
+              </table>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+    <script src="js/api.js"></script>
+    <script src="js/admin.js"></script>
+  </body>
+</html>

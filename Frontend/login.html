@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="lv">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Piesakies Pennywise.">
+    <title>Pieteikšanās — Pennywise</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body data-auth-guest>
+    <main class="auth-page">
+      <aside class="auth-aside">
+        <a class="brand" href="/">
+          <span class="brand-mark">P</span>
+          <span>Pennywise</span>
+        </a>
+        <div class="auth-quote">
+          <p class="eyebrow">Mazi soļi, stiprāki ieradumi</p>
+          <h1>Zini, kur paliek tava nauda.</h1>
+          <p>Vienkārša budžeta plānošana īstai studentu ikdienai — bez liekas sarežģītības.</p>
+        </div>
+        <footer>© <span data-current-year></span> Pennywise</footer>
+      </aside>
+
+      <section class="auth-main">
+        <div class="auth-card">
+          <p class="eyebrow">Prieks tevi atkal redzēt</p>
+          <h2>Pieteikšanās</h2>
+          <p>Lai turpinātu, ievadi savu e-pastu un paroli.</p>
+          <form data-auth-form="login" novalidate>
+            <div class="auth-message" data-auth-message role="status"></div>
+            <div class="field">
+              <label for="email">E-pasta adrese</label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="tavs.epasts@piemers.lv" required>
+            </div>
+            <div class="field">
+              <label for="password">Parole</label>
+              <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Tava parole" required>
+            </div>
+            <button class="button button-primary" type="submit">Pieteikties</button>
+          </form>
+          <div class="auth-switch">Vēl nav Pennywise konta? <a href="register.html">Reģistrējies</a></div>
+        </div>
+      </section>
+    </main>
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+  </body>
+</html>
