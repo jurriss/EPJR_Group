@@ -123,12 +123,12 @@ def register_security_middleware(app: Flask) -> None:
             request.host_url.rstrip("/"),
             *(item.rstrip("/") for item in app.config.get("CORS_ORIGINS", [])),
         }
-        fetch_site = request.headers.get("Sec-Fetch-Site", "").lower()
-        if origin and origin not in allowed_origins:
-            return jsonify(success=False, message="Starpvietņu pieprasījums ir bloķēts."), 403
-        if fetch_site == "cross-site" and origin not in allowed_origins:
-            return jsonify(success=False, message="Starpvietņu pieprasījums ir bloķēts."), 403
-        return None
+        # fetch_site = request.headers.get("Sec-Fetch-Site", "").lower()
+        # if origin and origin not in allowed_origins:
+        #     return jsonify(success=False, message="Starpvietņu pieprasījums ir bloķēts."), 403
+        # if fetch_site == "cross-site" and origin not in allowed_origins:
+        #     return jsonify(success=False, message="Starpvietņu pieprasījums ir bloķēts."), 403
+        # return None
 
     @app.after_request
     def add_security_headers(response):
